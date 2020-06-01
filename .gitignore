@@ -1,0 +1,9 @@
+.idea
+.project
+.npm
+.env
+.DS_Store
+*.csv
+/settings/*
+!settings/*.example
+untitled*
