@@ -222,7 +222,7 @@ console.log( doNothing() === undefined );
 
 function doNothing2() {
   return;
-};
+}
 
 console.log( doNothing2() === undefined );
 console.log( doNothing2() === doNothing() );
@@ -272,3 +272,62 @@ console.log(res_1);
 
 const res_2 = powOf(6, 6);
 console.log(res_2);
+
+
+// function expression
+
+function sayHey(){
+  console.log('Heyyyyyy');
+}
+console.log(sayHey.toString())
+
+
+let age = 19
+
+let welcome;
+
+if (age < 18) {
+
+  welcome = function() {
+    console.log("Hello!");
+  };
+
+} else {
+
+  welcome = function() {
+    console.log("Greetings!");
+  };
+
+}
+
+welcome(); // ok now
+
+// arrow functions
+
+// rewrite this function as arrow func
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Do you agree?",
+  function() { alert("You agreed."); },
+  function() { alert("You canceled the execution."); }
+);
+
+// answer
+
+function ask(question, yes, no) {
+  if (confirm(question)) {
+    yes()
+  } else {
+    no()
+  }
+}
+
+ask(
+  'Do you agree?',
+  () => alert('You agreed'),
+  () => alert('You cancelled the execution')
+)
