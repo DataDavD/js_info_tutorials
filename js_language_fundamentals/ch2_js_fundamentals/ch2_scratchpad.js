@@ -149,3 +149,126 @@ switch (a) {
   default:
     console.log('The result is strange. Really.');
 }
+
+// functions
+
+function helloWorld() {
+  console.log('Hello World, I am using JavaScript!')
+}
+
+helloWorld()
+
+// global vars changed inside function
+
+let varTest = 'this';
+
+function globalVarTest() {
+  varTest = 'that'
+  console.log(varTest)
+}
+console.log(varTest)
+globalVarTest()
+console.log(varTest)
+
+
+// change not seen on outside since gets copy of value
+function showMessage(from, text) {
+
+  from = '*' + from + '*'; // make "from" look nicer
+
+  console.log( from + ': ' + text );
+}
+
+let from = "Ann";
+
+showMessage(from, "Hello"); // *Ann*: Hello
+
+// the value of "from" is the same, the function modified a local copy
+console.log( from ); // Ann
+
+showMessage('David');
+
+
+// add default text value
+function showMessage(from, text = 'hey, no text given') {
+
+  from = '*' + from + '*'; // make "from" look nicer
+
+  console.log( from + ': ' + text );
+}
+
+let from = "Ann";
+
+showMessage(from, "Hello"); // *Ann*: Hello
+
+// the value of "from" is the same, the function modified a local copy
+console.log( from ); // Ann
+
+showMessage('David');
+
+function sub(a, b) {
+  return a - b;
+}
+
+const result = sub(4, 2);
+console.log(result);
+
+
+// empty returns
+
+function doNothing() {};
+
+console.log( doNothing() === undefined );
+
+function doNothing2() {
+  return;
+};
+
+console.log( doNothing2() === undefined );
+console.log( doNothing2() === doNothing() );
+
+
+// rewrite the function using ? or || instead of if/else
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Did parents allow you?');
+  }
+}
+
+// solution using ?
+function checkAge(age) {
+  return (age > 18) ? true : console.log('Did parents allow you?');
+}
+
+checkAge(20);
+
+// solution using ||
+function checkAge(age) {
+  return (age > 18) || console.log('Did parents allow you?');
+}
+
+checkAge(20);
+
+// return min of two numbers
+
+function min(a, b) {
+  return a < b ? a : b;
+}
+
+function powOf(x, n) {
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+const res_1 = powOf(2, 6);
+console.log(res_1);
+
+const res_2 = powOf(6, 6);
+console.log(res_2);
